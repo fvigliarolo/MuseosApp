@@ -54,7 +54,7 @@ while($reg=mysqli_fetch_array($resultado2)){
 
 if ($exito==true){
 echo "login invitado";
-header('location: ..\menu\prueba.html');
+header('location: ..\menu\index.html');
 }else{
   $conexion3=mysqli_connect("34.71.137.32","Juan","lumaca","MuseosBD") or
   die("problema en la conexion");
