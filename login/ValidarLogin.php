@@ -1,3 +1,4 @@
+
 <?php
 include_once('usuario.php');
 session_start();
@@ -9,7 +10,7 @@ $_SESSION['password']=$_REQUEST['campo_password_html'];
 $conexion=mysqli_connect("34.71.137.32","Juan","lumaca","MuseosBD") or
 die("problema en la conexion");
 
-$sql="select Documento, correo, Contraseña from persona where correo='".$_REQUEST['campo_mail_html']."' and Contraseña='".$_REQUEST['campo_password_html']."';";
+$sql="select  Correo, Pass from usuario where Correo='".$_REQUEST['campo_mail_html']."' and Pass='".$_REQUEST['campo_password_html']."';";
 
 
 $resultado = conectar($sql);
@@ -22,7 +23,7 @@ $resultado = conectar($sql);
 $exito=false;
 while($reg=mysqli_fetch_array($resultado)){
   $exito=true;
-  $usuario_id = $reg["Documento"];
+  $usuario_id = $reg["Correo"];
 
 }
 
@@ -38,17 +39,21 @@ echo "login exitoso";
 */
 
 //verificar si es invitado, docente_guia o admin
+
+
 $conexion2=mysqli_connect("34.71.137.32","Juan","lumaca","MuseosBD") or
 die("problema en la conexion");
 
-$sqlinv="select p.Documento, i.DocumentoInvitado from persona p, Invitado i where p.Documento=i.DocumentoInvitado;";
+$sqlinv="select u.Correo
+from Invitado i,persona p,  usuario u 
+where p.Documento=i.DocumentoInvitado and p.Documento=u.Persona;";
 
 $resultado2 = conectar($sqlinv);
 
 $exito=false;
 while($reg=mysqli_fetch_array($resultado2)){
   $exito=true;
-  $usuario_id = $reg["Documento"];
+  $usuario_id = $reg["Correo"];
 
 }
 
@@ -56,17 +61,21 @@ if ($exito==true){
 echo "login invitado";
 header('location: ..\menu\index.html');
 }else{
+
+
   $conexion3=mysqli_connect("34.71.137.32","Juan","lumaca","MuseosBD") or
   die("problema en la conexion");
   
-  $sqldocg="select p.Documento, dg.DocumentoDocente_Guia from persona p, Docente_Guia dg where p.Documento=dg.DocumentoDocente_Guia;";
+  $sqldocg="select u.Correo
+  from Docente_Guia dg, persona p,  usuario u 
+  where p.Documento=dg.DocumentoDocente_Guia and p.Documento=u.Persona;";
   
   $resultado3 = conectar($sqldocg);
   
   $exito=false;
   while($reg=mysqli_fetch_array($resultado3)){
     $exito=true;
-    $usuario_id = $reg["Documento"];
+    $usuario_id = $reg["Correo"];
   
   }
   if ($exito==true){
