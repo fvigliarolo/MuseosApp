@@ -12,8 +12,8 @@ class usuario{
 
   function setUsuario($usuario_doc){
   include_once("connectBD.php");
-   $Sentencia_sql="select p.*, i.*, dg.*, a* 
-   from persona p, Invitado i, Docente_Guia dg, Administrador a
+   $Sentencia_sql="select u.*,p.*, i.*, dg.*, a* 
+   from usuario u,persona p, Invitado i, Docente_Guia dg, Administrador a
    where p.Documento=i.DocumentoInvitado or p.Documento=dg.DocumentoDocente_Guia or p.Documento=a.DocumentoAdministrador;";
    $resultado = conectar($Sentencia_sql);
 

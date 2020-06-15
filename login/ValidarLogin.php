@@ -10,24 +10,27 @@ $_SESSION['password']=$_REQUEST['campo_password_html'];
 $conexion=mysqli_connect("34.71.137.32","Juan","lumaca","MuseosBD") or
 die("problema en la conexion");
 
-$sql="select  Correo, Pass from usuario where Correo='".$_REQUEST['campo_mail_html']."' and Pass='".$_REQUEST['campo_password_html']."';";
+$sql="select  Correo, Pass,Tipo,Persona from usuario where Correo='".$_REQUEST['campo_mail_html']."' and Pass='".$_REQUEST['campo_password_html']."';";
 
 
-$resultado = conectar($sql);
+//$resultado = conectar($sql);
 
 
 //$sql=" select * from usuario where usuario_mail='".$_REQUEST['campo_mail_html']."' and usuario_password='".$_REQUEST['campo_password_html']."';";
 
-//$registro=mysqli_query($conexion,$sql) or die ("problema en el select".mysqli_error($conexion));
+$resultado=mysqli_query($conexion,$sql) or die ("problema en el select".mysqli_error($conexion));
 
 $exito=false;
 while($reg=mysqli_fetch_array($resultado)){
   $exito=true;
-  $usuario_id = $reg["Correo"];
+  $correo = $reg["Correo"];
+  $pass = $reg["Pass"];
+  $verifica = $reg["Tipo"];
+  $persona = $reg["Persona"];
 
 }
 
-if ($exito==true){
+if (($exito==true) && ($verifica=="Invitado")){
 /*
   $user = new usuario;
   $user->setUsuario($usuario_id);
@@ -40,57 +43,50 @@ echo "login exitoso";
 
 //verificar si es invitado, docente_guia o admin
 
-
-$conexion2=mysqli_connect("34.71.137.32","Juan","lumaca","MuseosBD") or
-die("problema en la conexion");
-
-$sqlinv="select u.Correo
-from Invitado i,persona p,  usuario u 
-where p.Documento=i.DocumentoInvitado and p.Documento=u.Persona;";
-
-$resultado2 = conectar($sqlinv);
-
+$sqlinv="select * from Invitado where DocumentoInvitado=" . $persona . ";";
+$listainvitado=conectar($sqlinv);
 $exito=false;
-while($reg=mysqli_fetch_array($resultado2)){
+while($reg=mysqli_fetch_array($listainvitado)){
   $exito=true;
-  $usuario_id = $reg["Correo"];
-
 }
 
 if ($exito==true){
-echo "login invitado";
-header('location: ..\menu\index.html');
+  echo "login invitado";
 }else{
-
-
-  $conexion3=mysqli_connect("34.71.137.32","Juan","lumaca","MuseosBD") or
-  die("problema en la conexion");
-  
-  $sqldocg="select u.Correo
-  from Docente_Guia dg, persona p,  usuario u 
-  where p.Documento=dg.DocumentoDocente_Guia and p.Documento=u.Persona;";
-  
-  $resultado3 = conectar($sqldocg);
-  
-  $exito=false;
-  while($reg=mysqli_fetch_array($resultado3)){
-    $exito=true;
-    $usuario_id = $reg["Correo"];
-  
-  }
-  if ($exito==true){
-    echo "login dg";
-    }else{
-echo "usted es admin";
-    }
-
-
-
+  echo "no hay invitado";
 }
 
 
 
+}else if(($exito==true) && ($verifica=="Docente_Guia")){
 
+  $sqldg="select * from Docente_Guia where DocumentoDocente_Guia=" . $persona . ";";
+  $listadg=conectar($sqldg);
+  $exito=false;
+  while($reg=mysqli_fetch_array($listadg)){
+    $exito=true;
+  }
+  
+  if ($exito==true){
+    echo "login dg";
+  }else{
+    echo "no hay dg";
+  }
+
+}else if(($exito==true) && ($verifica=="Administrador")){
+
+  $sqladmin="select * from Administrador where DocumentoAdministrador=" . $persona . ";";
+  $listaadmin=conectar($sqladmin);
+  $exito=false;
+  while($reg=mysqli_fetch_array($listaadmin)){
+    $exito=true;
+  }
+  
+  if ($exito==true){
+    echo "login admin";
+  }else{
+    echo "no hay admin";
+  }
 
 }else{
 /*
