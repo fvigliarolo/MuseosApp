@@ -5,19 +5,15 @@
     <title>Login</title>
     <link rel="stylesheet" href="css/login-estilo.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-        body {
-            background-color: #303641;
-        }
-    </style>
+   
 </head>
 
-<body>
+<body >
     <div id="container-login">
         <div id="title">
             <i class="material-icons lock">lock</i> Login
         </div>
-
+        
         <form method="post" action="ValidarLogin.php">
             <div class="input">
                 <div class="input-addon">
