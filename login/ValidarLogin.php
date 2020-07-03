@@ -13,7 +13,7 @@ $conexion=mysqli_connect("34.71.137.32","Juan","lumaca","MuseosBD") or
 die("problema en la conexion");
 
 $sql="select  Correo, Pass,Tipo,Persona from Usuario where Correo='".$_REQUEST['campo_mail_html']."' and Pass='".$_REQUEST['campo_password_html'] ."';";
-
+//commit
 
 //$resultado = conectar($sql);
 
