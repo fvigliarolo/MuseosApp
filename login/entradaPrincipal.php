@@ -56,7 +56,7 @@
 
         <div class="register">
             ¿No tienes una cuenta aún?
-            <a href="registrarPrincipal.php"><button id="register-link">Registrarse</button></a>
+            <a href="../registro/registrarPrincipal.php"><button id="register-link">Registrarse</button></a>
         </div>
     </div>
 

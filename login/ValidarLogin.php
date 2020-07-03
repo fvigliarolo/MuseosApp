@@ -12,7 +12,7 @@ $_SESSION['password']=$_REQUEST['campo_password_html'];
 $conexion=mysqli_connect("34.71.137.32","Juan","lumaca","MuseosBD") or
 die("problema en la conexion");
 
-$sql="select  Correo, Pass,Tipo,Persona from usuario where Correo='".$_REQUEST['campo_mail_html']."' and Pass='".$_REQUEST['campo_password_html'] ."';";
+$sql="select  Correo, Pass,Tipo,Persona from Usuario where Correo='".$_REQUEST['campo_mail_html']."' and Pass='".$_REQUEST['campo_password_html'] ."';";
 
 
 //$resultado = conectar($sql);
@@ -53,8 +53,8 @@ while($reg=mysqli_fetch_array($listainvitado)){
 }
 
 if ($exito==true){
-  //echo "login invitado";
- echo $pasword_encriptado;
+  echo "login invitado";
+ //echo $pasword_encriptado;
 }else{
   echo "no hay invitado";
 }
@@ -92,12 +92,11 @@ if ($exito==true){
   }
 
 }else{
-/*
+
     include_once 'entradaPrincipal.php';
     echo $_SESSION['errorlog'];
 
-*/
-    echo "login incorrecto";
+
 
 
 
