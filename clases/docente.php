@@ -2,7 +2,7 @@
 
 Class docente extends usuario{
 
-    var $Disponible
+    var $Disponible;
 }
 
 ?>
