@@ -28,6 +28,12 @@ class usuario{
 
   }
 
+  function getUsuario(){
+    $Obtener_dato = get_class_vars(get_class("usuario"));
+    return $Obtener_dato;
+
+  }
+
 }
 
 
