@@ -23,7 +23,14 @@ $_SESSION['error'] = "";
         </div>
 
         <form method="post" action="proceso_registro.php">
-            <div class="input">
+        <div class="input">
+        <div class="input-addon">
+                    <i class="material-icons">Documento</i>
+                </div>
+                <input id="ci" placeholder="Documento" type="email" required class="validate" autocomplete="off" name="campo_mail_ingresado" >
+        </div>
+
+        <div class="input">
                 <div class="input-addon">
                     <i class="material-icons">email</i>
                 </div>
