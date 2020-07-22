@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="css/login-estilo.css">
+    <link rel="stylesheet" href=".\css\login-estilo.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    
 </head>
 
-<body >
+<body background=".\img\Fondo_login.jpg">
     <div id="container-login">
         <div id="title">
             <i class="material-icons lock">lock</i> Login
