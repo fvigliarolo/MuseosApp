@@ -17,6 +17,7 @@ $_SESSION['error'] = "";
 </head>
 
 <body>
+  
     <div id="container-register">
         <div id="title">
             <i class="material-icons lock">lock</i> Register
@@ -29,6 +30,46 @@ $_SESSION['error'] = "";
                 </div>
                 <input id="ci" placeholder="Documento" type="email" required class="validate" autocomplete="off" name="campo_mail_ingresado" >
         </div>
+
+        <div class="input">
+        <div class="input-addon">
+                    <i class="material-icons">Nombre</i>
+                </div>
+                <input id="ci" placeholder="Documento" type="email" required class="validate" autocomplete="off" name="campo_mail_ingresado" >
+        </div>
+
+        <div class="input">
+        <div class="input-addon">
+                    <i class="material-icons">Apellido</i>
+                </div>
+                <input id="ci" placeholder="Documento" type="email" required class="validate" autocomplete="off" name="campo_mail_ingresado" >
+        </div>
+
+        <div class="input">
+        <div class="input-addon">
+                    <i class="material-icons">Fecha de nacimiento</i>
+                </div>
+                <input id="ci" placeholder="Documento" type="email" required class="validate" autocomplete="off" name="campo_mail_ingresado" >
+        </div>
+
+
+        <div class="input">
+        <div class="input-addon">
+                    <i class="material-icons">Numero de celular*</i>
+                </div>
+                <input id="ci" placeholder="Documento" type="email" required class="validate" autocomplete="off" name="campo_mail_ingresado" >
+        </div>
+
+        <div class="input">
+        <div class="input-addon">
+                    <i class="material-icons">Documento*</i>
+                </div>
+                <input id="ci" placeholder="Documento" type="email" required class="validate" autocomplete="off" name="campo_mail_ingresado" >
+        </div>
+
+
+
+
 
         <div class="input">
                 <div class="input-addon">
@@ -60,10 +101,10 @@ $_SESSION['error'] = "";
 
 
         <div class="register">
-            Ya tienes una cuenta?
+            ¿Ya tienes una cuenta?
 
         </div>
-        <div><a href="entradaPrincipal.php"><button id="register-link">Log In</button></a></div>
+        <div><a href="..\login\entradaPrincipal.php"><button id="register-link">Iniciar sesión</button></a></div>
     </div>
     <footer>
       <div id= "error">
@@ -71,6 +112,7 @@ $_SESSION['error'] = "";
           <p><?php echo $_SESSION['error']; ?> </p>
       </div>
     </footer>
+   
 </body>
 
 </html>

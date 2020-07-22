@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href=".\css\css.css" rel="stylesheet" type="text/css">
     <div>
         <img src=".\img\Banner.jpg" width="1448" height="150">
-        <img src=".\img\Botones.jpg" width="1448" height="35">
+       
     </div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Museos</title>
 </head>
-<body>
-    <input type="button" value="Inicio">
-    <a href="javascript:abrir('entradaPrincipal.php')"><input type="button" value="Identificate"></a>
-    <input type="button" value="Museos">
-    <input type="button" value="Contacto">
-    
+<body background=".\img\fondo.jpg">
+
+
+    <nav>
+        <ul>
+        <li> <a href="index.html">Inicio</a></li>
+        <li> <a href="javascript:abrir('entradaPrincipal.php')">Registrarme</a></li>
+        <li> <a href="index.html">Museos</a></li>
+        <li> <a href="index.html">Contacto</a></li>
+        <li> <a href="index.html">Actividades</a></li>
+        </ul>
+        </nav>
+
+
     <script>
         function abrir(url) {
         open('../registro/registrarPrincipal.php','','top=300,left=300,width=300,height=300') ;
         }
-        </script>
+    </script>
     
 </body>
 </html>
