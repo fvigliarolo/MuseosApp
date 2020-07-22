@@ -2,15 +2,15 @@
 <?php
 include_once('usuario.php');
 session_start();
-include_once("connectBD.php");
+include("connectBD.php");
 $_SESSION['usuario']=$_REQUEST['campo_mail_html'];
 $_SESSION['password']=$_REQUEST['campo_password_html'];
 
 
 
 
-$conexion=mysqli_connect("34.71.137.32","Juan","lumaca","MuseosBD") or
-die("problema en la conexion");
+//$conexion=mysqli_connect("34.71.137.32","Juan","lumaca","MuseosBD") or
+//die("problema en la conexion");
 
 $sql="select  Correo, Pass,Tipo,Persona from Usuario where Correo='".$_REQUEST['campo_mail_html']."' and Pass='".$_REQUEST['campo_password_html'] ."';";
 //commit
@@ -20,7 +20,7 @@ $sql="select  Correo, Pass,Tipo,Persona from Usuario where Correo='".$_REQUEST['
 
 //$sql=" select * from usuario where usuario_mail='".$_REQUEST['campo_mail_html']."' and usuario_password='".$_REQUEST['campo_password_html']."';";
 
-$resultado=mysqli_query($conexion,$sql) or die ("problema en el select".mysqli_error($conexion));
+$resultado=conectar($sql);
 
 $exito=false;
 while($reg=mysqli_fetch_array($resultado)){
