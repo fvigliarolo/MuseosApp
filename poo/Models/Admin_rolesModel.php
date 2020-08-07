@@ -22,12 +22,13 @@ public    $intCelular;
         return $request;
     }
 
-    public function insertRol(int $documento, string $nombre, string $apellido, string $email, int $celular)
+    public function insertRol(int $documento, string $nombre, string $apellido, string $fecha, string $email, int $celular)
     {
         $return= "";
         $this->intDocumento = $documento;
         $this->strNombre=$nombre;
         $this->strApellido=$apellido;
+        $this->strFecha=$fecha;
         $this->strEmail=$email;
         $this->intCelular=$celular;
 
@@ -41,9 +42,14 @@ public    $intCelular;
         if(empty($request))
         {
             $query_insert = "INSERT INTO Persona(Documento, Nombre, Apellido, Fecha_Nacimiento, Numero_Celular, Numero_Linea) VALUES(?,?,?,?,?,?)";
-            $arrData = array($this->intDocumento, $this->strNombre , $this->strApellido,"2000-01-10",$this->intCelular, "2");
+            $arrData = array($this->intDocumento, $this->strNombre , $this->strApellido, $this->strFecha, $this->intCelular, "");
             $request_insert = $this->insert($query_insert,$arrData);
             $return = $request_insert;
+            
+            $query_insert2 = "INSERT INTO Administrador(documentoAdministrador) VALUES(?)";
+            $arrdata2 =array($this->intDocumento);
+            $request_insert2= $this->insert($query_insert2, $arrdata2);
+            
         }else{
             $return = "exist";
         }

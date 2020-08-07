@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		var intDocumento = document.querySelector('#modalFormRol_AdministradorDocumento').value;
 		var strNombre = document.querySelector('#modalFormRol_AdministradorNombre').value;
 		var strApellido = document.querySelector('#modalFormRol_AdministradorApellido').value;
+		var strFecha = document.querySelector('#modalFormRol_AdministradorFecha').value;
 		var strEmail = document.querySelector('#modalFormRol_AdministradorEmail').value;
 		var intCelular = document.querySelector('#modalFormRol_AdministradorCelular').value;
 		//var strNombre = documento.querySelector('#modalFormRol_AdministradorFoto').value;
@@ -56,16 +57,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		request.onreadystatechange = function(){
 			if(request.readyState == 4 && request.status == 200)
 			{
-				
-				var objData = JSON.parse(request.responseText);
-
-				if(objData.status){
+				if(request.responseText == 0){
+					
 					$('#modalFormRol').modal("hide");
 					formRol.reset();
-					swal("Roles de usuario", objData.msg, "success");
-					tableRoles.api().ajax.reload(function(){});
+					swal("Roles de usuario", "Dato guardado correctamente", "success");
+					tableRoles.ajax.reload(function () {});
 				} else {
-					swal("Error", objData.msg, "error");
+					swal("Error", "Verifique si ya existe el usuario", "error");
 				} 
 			}
 			

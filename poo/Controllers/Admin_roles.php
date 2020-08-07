@@ -41,18 +41,19 @@ class Admin_roles extends Controllers{
         $intDocumento = intval($_POST['modalFormRol_AdministradorDocumento']);
         $strNombre = strClean($_POST['modalFormRol_AdministradorNombre']);
         $strApellido = strClean($_POST['modalFormRol_AdministradorApellido']);
+        $strFecha = strClean($_POST['modalFormRol_AdministradorFecha']);
         $strEmail = strClean($_POST['modalFormRol_AdministradorEmail']);
         $intCelular = strClean($_POST['modalFormRol_AdministradorCelular']);
-        $request_rol = $this->model->insertRol($intDocumento, $strNombre, $strApellido, $strEmail, 
+        $request_rol = $this->model->insertRol($intDocumento, $strNombre, $strApellido, $strFecha, $strEmail, 
         $intCelular );
             
          if($request_rol == "exist")
         {
-            $arrResponse = array('status' => false, 'msg' => 'Error dato/s duplicado');
+            $arrResponse = true;
         }else{
-            $arrResponse = array('status' => true, 'msg' => 'Datos guardados correctamente');
+            $arrResponse =  false;
         }
-        echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+        echo $arrResponse;
         die();
 
 
