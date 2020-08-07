@@ -23,23 +23,27 @@
               <form id='formRol' name='formRol'>
                 <div class="form-group">
                   <label class="control-label">Documento</label>
-                  <input id="modalFormRol_AdministradorDocumento" class="form-control" type="text" placeholder="Enter full name" name="modalFormRol_AdministradorDocumento">
+                  <input id="modalFormRol_AdministradorDocumento" class="form-control" type="text" placeholder="Ingrese solo el numero de documento" name="modalFormRol_AdministradorDocumento">
                 </div>
                 <div class="form-group">
                   <label class="control-label">Nombre</label>
-                  <input id="modalFormRol_AdministradorNombre" class="form-control" type="text" placeholder="Enter email address" name="modalFormRol_AdministradorNombre">
+                  <input id="modalFormRol_AdministradorNombre" class="form-control" type="text" placeholder="Ingrese solo el nombre" name="modalFormRol_AdministradorNombre">
                 </div>
                 <div class="form-group">
                   <label class="control-label">Apellido</label>
-                  <input id="modalFormRol_AdministradorApellido" class="form-control" type="text" placeholder="Enter email address" name="modalFormRol_AdministradorApellido">
+                  <input id="modalFormRol_AdministradorApellido" class="form-control" type="text" placeholder="Ingrese solo el primer apellido" name="modalFormRol_AdministradorApellido">
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Fecha de Nacimiento</label>
+                  <input id="modalFormRol_AdministradorFecha" class="form-control" type="date" placeholder="AAAA-MM-DD" name="modalFormRol_AdministradorFecha">
                 </div>
                 <div class="form-group">
                   <label class="control-label">Email</label>
-                  <input id="modalFormRol_AdministradorEmail" class="form-control" type="email" placeholder="Enter email address" name="modalFormRol_AdministradorEmail">
+                  <input id="modalFormRol_AdministradorEmail" class="form-control" type="email" placeholder="Direccion de email" name="modalFormRol_AdministradorEmail">
                 </div>
                 <div class="form-group">
                   <label class="control-label">Celular</label>
-                  <input id="modalFormRol_AdministradorCelular" class="form-control" type="text" placeholder="Enter email address" name="modalFormRol_AdministradorCelular">
+                  <input id="modalFormRol_AdministradorCelular" class="form-control" type="text" placeholder="Contacto telefonico" name="modalFormRol_AdministradorCelular">
                 </div>
                 <div class="form-group">
                   <label class="control-label">Foto</label>
