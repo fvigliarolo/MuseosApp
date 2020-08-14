@@ -1,5 +1,6 @@
 <?php
 
+
 function base_url()
 {
     return BASE_URL;
@@ -13,6 +14,12 @@ function media()
 function headerAdmin($data="")
 {
     $view_header="Views/Template/header_admin.php";
+    require_once($view_header);
+}
+
+function headerMenu_principal($data="")
+{
+    $view_header="Views/Template/header_Menu_principal.php";
     require_once($view_header);
 }
 
