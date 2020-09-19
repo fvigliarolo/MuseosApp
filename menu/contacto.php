@@ -14,15 +14,7 @@
 <body background=".\img\fondo.jpg">
 
 
-    <nav>
-        <ul>
-        <li> <a href="index.html">Inicio</a></li>
-     
-        <li> <a href="museos.html">Museos</a></li>
-        <li> <a href="contacto.php">Contacto</a></li>
-        <li> <a href="index.html">Actividades</a></li>
-        </ul>
-        </nav>
+    
 
 
 
@@ -62,12 +54,15 @@
     <p><label> Comentario<br />
         <span class="Comentario"><textarea name="your-message" cols="40" rows="10" aria-invalid="false"></textarea></span> </label></p>
 
-    <p><input type="submit" value="Enviar" /></p>
-
+    
+    <br>
+    <p><input type="submit" value="Enviar" /> </p> 
     <?php
 
     $_SESSION['enviado']="Consulta enviada correctamente";
     $_SESSION['error']="Se ha producido un error al enviar su consulta, intentelo de nuevo";
+    $_SESSION['datos']="Debe ingresar los campos de texto con *";
+
 
     ?>
     </div></form></div></div>

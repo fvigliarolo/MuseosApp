@@ -31,21 +31,32 @@ $mail->Username='somosdevcore@gmail.com';
 $mail->Password='maildevcore';
 
 $mail->setFrom($_POST['your-email'],$_POST['your-name']);
-$mail->addAddress('somosdevcore@gmail.com'); //indica la dirección de quien envio el correo
+$mail->addAddress("somosdevcore@gmail.com"); //indica la dirección de quien envio el correo
 $mail->addReplyTo($_POST['your-email'],$_POST['your-name']);
 
 $mail->isHTML(True);
 $mail->Subject=$_POST['your-subject'];
-$mail->Body='<p>Nombre: ' . $_POST['your-name'] . ' <br> Teléfono ' . $_POST['telefono'] . '' . $_POST['your-message'] . ' </p>';
-if(!$mail->send()){
-    include 'contacto.php';
-    echo $_SESSION['error'];
-    //echo "error";
+$mail->Body='<p>Nombre: ' . $_POST['your-name'] . ' <br> Teléfono ' . $_POST['telefono'] . ' <br>' . $_POST['your-message'] . ' </p>';
+
+if (trim($_POST['your-name']=="") or trim($_POST['your-email']=="") or trim($_POST['your-message']=="")){
+   include 'contacto.php';
+   echo $_SESSION['datos'];
 }else{
-    include 'contacto.php';
-    echo $_SESSION['enviado'];
-    //echo "correo enviado con exito";
+
+    if(!$mail->send()){
+        include 'contacto.php';
+        echo $_SESSION['error'];
+        //echo "error";
+    }else{
+        include 'contacto.php';
+        echo $_SESSION['enviado'];
+        //echo "correo enviado con exito";
+    }
+   
+    
+
 }
+
 
 
 
